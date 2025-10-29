@@ -12,7 +12,7 @@ if menos_ou_mais_9_digitos:
     sys.exit()
 
 #Faz uma limpeza nos carcteres que não estão entre 0-9 
-cpf_9_digitos = re.sub(r'[^0-9]', '', cpf_enviado)#Tudo que não está entre 0-9 essa função tira da string
+cpf_9_digitos = re.sub(r'[^0-9]', '', cpf_enviado)
 
 #Nesse ponto, se o número for menor que 9, é por que tinham caracteres inválidos.
 if len(cpf_9_digitos) < 9:
@@ -58,10 +58,9 @@ segundo_digito = (soma_total_digito2 * 10) % 11
 
 segundo_digito = 0 if segundo_digito > 9 else segundo_digito
 
-#cpf sem a formatação padrão
+#Cpf sem a formatação padrão
 cpf_gerado = f"{cpf_9_digitos}{primeiro_digito}{segundo_digito}"
-
-#cpf formatado
+#Cpf formatado
 cpf_formatado = f"{cpf_gerado[:3]}.{cpf_gerado[3:6]}.{cpf_gerado[6:9]}-{cpf_gerado[9:]}"
 
 print(f"Os dois ultimos digitos do seu cpf são: {primeiro_digito}{segundo_digito}")
