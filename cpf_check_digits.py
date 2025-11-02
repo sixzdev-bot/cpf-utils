@@ -4,19 +4,15 @@ import re
 #Nove digitos iniciais digitados pelo usuário
 cpf_enviado = input("Digite os 9 primeiros digitos do cpf: ")
 
-#Checa se tem menos ou mais que nove digitos
-menos_ou_mais_9_digitos = len(cpf_enviado) >  9 or len(cpf_enviado) < 8
-
-if menos_ou_mais_9_digitos:
-    print("Mais ou menos que nove digitos.")
-    sys.exit()
-
 #Faz uma limpeza nos carcteres que não estão entre 0-9 
 cpf_9_digitos = re.sub(r'[^0-9]', '', cpf_enviado)
 
 #Nesse ponto, se o número for menor que 9, é por que tinham caracteres inválidos.
-if len(cpf_9_digitos) < 9:
-    print("Seu cpf possui caracteres inválidos.")
+if len(cpf_9_digitos) > 9:
+    print("Digte apenas 9 números.")
+    sys.exit()
+elif len(cpf_9_digitos) < 9:
+    print("Digite 9 digitos válidos.")
     sys.exit()
 
 #Proibe cpfs sequenciais como 11111111111 ou 99999999999 
