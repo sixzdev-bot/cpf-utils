@@ -7,7 +7,7 @@ cpf_enviado = input("Digite os 9 primeiros digitos do cpf: ")
 #Faz uma limpeza nos carcteres que não estão entre 0-9 
 cpf_9_digitos = re.sub(r'[^0-9]', '', cpf_enviado)
 
-#Nesse ponto, se o número for menor que 9, é por que tinham caracteres inválidos.
+#Checa se o input enviado tem nove digitos e se eles são VÁLIDOS.
 if len(cpf_9_digitos) > 9:
     print("Digte apenas 9 números.")
     sys.exit()
